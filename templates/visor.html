@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Producto - VIUK</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="../static/css/visor.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor"></div>
+    
+    <header class="header">
+        <nav class="nav-container">
+            <a href="{{ url_for('home') }}" class="logo">VIUK</a>
+            <ul class="nav-menu">
+                <li>
+                    <a href="{{ url_for('design') }}" class="nav-button">
+                        <i class="fas fa-paint-brush"></i>
+                        <span>Diseño</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('shop') }}" class="nav-button">
+                        <i class="fas fa-store"></i>
+                        <span>Tienda</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('cart') }}" class="nav-button" id="carrito">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrito</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="product-details-content">
+        <div class="product-card">
+            <div class="product-image">
+                <img src="{{diseno.imagen}}" alt="{{diseno.nombre}}" class="product-img">
+            </div>
+            <div class="product-info">
+                <h1 class="product-title">{{diseno.nombre}}</h1>
+                <p class="product-price">$ {{diseno.precio}} COPS</p>
+                <p class="product-description">
+                    Descripción del producto. Este es un ejemplo de descripción que detalla las características y beneficios del producto.
+                </p>
+                <div class="product-features">
+                    <h2>Características:</h2>
+                    <ul>
+                        <li>{{diseno.origen}}</li>
+                        <li>REFF: {{diseno.id}}</li>
+                        <li>Característica 3</li>
+                    </ul>
+                </div>
+                <div class="product-sizes">
+                    <h2>Tallas disponibles:</h2>
+                    <div class="size-buttons">
+                        <a class="size-button">S</a>
+                        <a class="size-button">M</a>
+                        <a class="size-button">L</a>
+                        <a class="size-button">XL</a>
+                    </div>
+                </div>
+                <a onclick="agregarProducto({{ diseno.id }})" class="add-to-cart-button">Agregar al Carrito</a>
+            </div>
+        </div>
+    </main>
+
+    <div class="background-pattern"></div>
+
+    <script src="../static/js/visor.js"></script>
+</body>
+</html>
+

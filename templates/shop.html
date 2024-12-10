@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/icon/icon.PNG" type="image/x-icon">
+    <title>VIUK - Tienda</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="../static/css/shop.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor"></div>
+    
+    <header class="header">
+        <nav class="nav-container">
+
+            <a href="{{ url_for('home') }}" class="logo">VIUK</a>
+            <ul class="nav-menu">
+
+                <li>
+                    <a href="{{ url_for('design') }}" class="nav-button">
+                        <i class="fas fa-paint-brush"></i>
+                        <span>Diseño</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ url_for('shop') }}" class="nav-button">
+                        <i class="fas fa-store"></i>
+                        <span>Tienda</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ url_for('cart') }}" class="nav-button" id="carrito">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrito</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="store-content">
+        <h1 class="store-title">Nuestra Tienda</h1>
+
+        <div class="buttons-container">
+            <a href="#coleccion" id="coleccionBtn" class="store-nav-link">
+                <i class="fas fa-tshirt"></i>
+                <span>Colección</span>
+            </a>
+            <a href="{{ url_for('designers') }}" id="diseñadorBtn" class="store-nav-link">
+                <i class="fas fa-pencil-ruler"></i>
+                <span>Diseñador</span>
+            </a>
+            <a href="{{ url_for('estandar') }}" id="estandarBtn" class="store-nav-link">
+                <i class="fas fa-tags"></i>
+                <span>Estándar</span>
+            </a>
+        </div>
+
+        <div class="banner-collection-container">
+            <div id="banner" class="banner">
+                <img src="/static/img/banners1.jpg" alt="Banner 1" class="banner-image active">
+                <img src="/static/img/banners2.jpg" alt="Banner 2" class="banner-image">
+                <img src="/static/img/banners3.jpg" alt="Banner 3" class="banner-image">
+            </div>
+
+            <div id="collectionsContainer" class="collections-grid">
+                <div class="collection-card">
+                    <div class="collection-image spring">
+                        <img src="../static/img/colección/Primavera.png" alt="Colección Primavera" class="collection-img">
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="collection-info">
+                        <h2>Primavera</h2>
+                        <a href="{{ url_for('design') }}" class="collection-button">Ver Colección</a>
+                    </div>
+                </div>
+                <div class="collection-card">
+                    <div class="collection-image summer">
+                        <img src="../static/img/colección/Verano.png" alt="Colección Verano" class="collection-img">
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="collection-info">
+                        <h2>Verano</h2>
+                        <a href="{{ url_for('design') }}" class="collection-button">Ver Colección</a>
+                    </div>
+                </div>
+                <div class="collection-card">
+                    <div class="collection-image autumn">
+                        <img src="../static/img/colección/Otoño.png" alt="Colección Otoño" class="collection-img">
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="collection-info">
+                        <h2>Otoño</h2>
+                        <a href="{{ url_for('design') }}" class="collection-button">Ver Colección</a>
+                    </div>
+                </div>
+                <div class="collection-card">
+                    <div class="collection-image winter">
+                        <img src="../static/img/colección/Invierno.png" alt="Colección Invierno" class="collection-img">
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="collection-info">
+                        <h2>Invierno</h2>
+                        <a href="{{ url_for('design') }}" class="collection-button">Ver Colección</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="mainContent">
+            <section class="product-section" id="newProducts">
+                <h2>Nuevo</h2>
+                {% for new in shop %}
+                    <div class="product-grid">
+                        <div class="collection-card">
+                            <div class="collection-image new-1">
+                                <img src=" {{new.imagen}} " alt="{{new.nombre}}" class="collection-img">
+                                <div class="overlay"></div>
+                            </div>
+                            <div class="collection-info">
+                                <h3>{{new.nombre}}</h3>
+                                <a  onclick="verProducto( {{new.id}})"  class="collection-button">Ver Más</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </section>
+
+            <section class="product-section" id="offerProducts">
+                <h2>Ofertas</h2>
+                {% for oferta in shop %}
+                    <div class="product-grid">
+                        <div class="collection-card">
+                            <div class="collection-image offer-1">
+                                <img src="{{oferta.imagen}}" alt="{{oferta.nombre}}" class="collection-img">
+                                <div class="overlay"></div>
+                            </div>
+                            <div class="collection-info">
+                                <h3>{{oferta.nombre}}</h3>
+                                <a  onclick="verProducto( {{oferta.id}})"  class="collection-button">Ver Oferta</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </section>
+
+            <section class="product-section" id="popularProducts">
+                <h2>Popular</h2>
+                {% for popular in shop %}
+                    <div class="product-grid">
+                        <div class="collection-card">
+                            <div class="collection-image popular-1">
+                                <img src="{{popular.imagen}}" alt={{popular.nombre}} class="collection-img">
+                                <div class="overlay"></div>
+                            </div>
+                            <div class="collection-info">
+                                <h3>{{popular.nombre}}</h3>
+                                <a onclick="verProducto( {{popular.id}})"  class="collection-button">Ver Producto</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </section>
+        </div>
+    </main>
+
+    <div class="background-pattern"></div>
+    <script src="../static/js/shop.js"></script>
+</body>
+</html>
+

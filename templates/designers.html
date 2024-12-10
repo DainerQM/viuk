@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/icon/icon.PNG" type="image/x-icon">
+    <title>VIUK - Diseñadores</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="../static/css/designers.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor"></div>
+    
+    <header class="header">
+        <nav class="nav-container">
+            <!-- Enlace al inicio -->
+            <a href="{{ url_for('home') }}" class="logo">VIUK</a>
+            <ul class="nav-menu">
+                <!-- Enlace a diseño -->
+                <li>
+                    <a href="{{ url_for('design') }}" class="nav-button">
+                        <i class="fas fa-paint-brush"></i>
+                        <span>Diseño</span>
+                    </a>
+                </li>
+                <!-- Enlace a tienda -->
+                <li>
+                    <a href="{{ url_for('shop') }}" class="nav-button">
+                        <i class="fas fa-store"></i>
+                        <span>Tienda</span>
+                    </a>
+                </li>
+                <!-- Enlace al carrito (puedes enlazar a una futura ruta Flask) -->
+                <li>
+                    <a href="{{ url_for('cart') }}" class="nav-button">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrito</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="designer-content">
+        
+        <div class="designer-layout">
+            <aside class="designer-panel">
+                <h2 class="designs-title">Diseñador</h2>
+                <a href="#designer1" class="designer-link">
+                    <span>Diseñador 1</span>
+                </a>
+                <a href="#designer2" class="designer-link">
+                    <span>Diseñador 2</span>
+                </a>
+                <a href="#designer3" class="designer-link">
+                    <span>Diseñador 3</span>
+                </a>
+            </aside>
+
+            <section class="designs-container">
+                <h1 class="designs-title">De Diseñador</h1>
+                <div class="designs-grid">
+                    {% for diseno in veruzka %}
+                        <div class="design-card">
+                            <div class="design-image">
+                                <img src="{{ diseno.imagen }}" alt="{{ diseno.nombre }}" class="design-img">
+                                <div class="overlay"></div>
+                            </div>
+                            <div class="design-info">
+                                <h3>{{ diseno.nombre }}</h3>
+                                <p>{{ diseno.origen }}</p>
+                                <a onclick="verProducto( {{diseno.id}})" class="design-button">Ver Diseño</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="design-card">
+                        <div class="design-image">
+                            <img src="/placeholder.svg?height=300&width=300" alt="Diseño 4" class="design-img">
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="design-info">
+                            <h3>Diseño 4</h3>
+                            <a href="{{ url_for('design') }}" class="design-button">Ver Diseño</a>
+                        </div>
+                    </div>
+                    <div class="design-card">
+                        <div class="design-image">
+                            <img src="/placeholder.svg?height=300&width=300" alt="Diseño 4" class="design-img">
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="design-info">
+                            <h3>Diseño 4</h3>
+                            <a href="{{ url_for('design') }}" class="design-button">Ver Diseño</a>
+                        </div>
+                    </div>
+                    <div class="design-card">
+                        <div class="design-image">
+                            <img src="/placeholder.svg?height=300&width=300" alt="Diseño 4" class="design-img">
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="design-info">
+                            <h3>Diseño 4</h3>
+                            <a href="{{ url_for('design') }}" class="design-button">Ver Diseño</a>
+                        </div>
+                    </div>
+                    <div class="design-card">
+                        <div class="design-image">
+                            <img src="/placeholder.svg?height=300&width=300" alt="Diseño 4" class="design-img">
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="design-info">
+                            <h3>Diseño 4</h3>
+                            <a href="{{ url_for('design') }}" class="design-button">Ver Diseño</a>
+                        </div>
+                    </div>
+                    <div class="design-card">
+                        <div class="design-image">
+                            <img src="/placeholder.svg?height=300&width=300" alt="Diseño 4" class="design-img">
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="design-info">
+                            <h3>Diseño 4</h3>
+                            <a href="{{ url_for('design') }}" class="design-button">Ver Diseño</a>
+                        </div>
+                    </div>
+                    <div class="design-card">
+                        <div class="design-image">
+                            <img src="/placeholder.svg?height=300&width=300" alt="Diseño 4" class="design-img">
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="design-info">
+                            <h3>Diseño 4</h3>
+                            <a href="{{ url_for('design') }}" class="design-button">Ver Diseño</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="background-pattern"></div>
+
+    <script src="../static/js/designers.js"></script>
+</body>
+</html>
+

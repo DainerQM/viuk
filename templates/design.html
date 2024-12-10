@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/icon/icon.PNG" type="image/x-icon">
+    <title>VIUK - Diseñador</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="../static/css/design.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="../static/fonts/PlayfairDisplay-VariableFont_wght.ttf" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+</head>
+<body>
+    <div class="cursor"></div>
+    
+    <header class="header">
+        <nav class="nav-container">
+            <!-- Enlace al inicio -->
+            <a href="{{ url_for('home') }}" class="logo">VIUK</a>
+            <ul class="nav-menu">
+                <!-- Enlace a diseño -->
+                <li>
+                    <a href="{{ url_for('design') }}" class="nav-button">
+                        <i class="fas fa-paint-brush"></i>
+                        <span>Diseño</span>
+                    </a>
+                </li>
+                <!-- Enlace a tienda -->
+                <li>
+                    <a href="{{ url_for('shop') }}" class="nav-button">
+                        <i class="fas fa-store"></i>
+                        <span>Tienda</span>
+                    </a>
+                </li>
+                <!-- Enlace al carrito (puedes enlazar a una futura ruta Flask) -->
+                <li>
+                    <a href="{{ url_for('cart') }}" class="nav-button">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrito</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="design-content">
+        <h1 class="design-title">Diseñador VIUK</h1>
+        <div class="action-buttons">
+            <button id="uploadButton" class="design-button">Subir mi diseño</button>
+            <button id="contactButton" class="design-button">Contactar a un diseñador</button>
+        </div>
+        
+        <div class="design-container">
+            <div class="coming-soon">
+                <h2>Próximamente</h2>
+                <p>Estamos trabajando en mejorar nuestro editor de diseño. ¡Vuelve pronto para ver las nuevas funcionalidades!</p>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button id="saveButton" class="design-button" disabled>Guardar Diseño</button>
+            <button id="sendButton" class="design-button" disabled>Enviar a DB</button>
+        </div>
+    </main>
+
+    <div id="uploadPanel" class="upload-panel">
+        <div class="upload-content">
+            <h2>Subir mi Diseño</h2>
+            <form id="uploadForm" action="/send-email" method="post" enctype="multipart/form-data">
+                <input type="text" id="name" name="name" placeholder="Nombre" required>
+                <input type="text" id="email" name="email" placeholder="Correo/WP" required>
+                <div class="file-input">
+                    <input type="file" id="design" name="file" accept="image/*,application/pdf" required>
+                    <label for="design">Agregar diseño (Imagen o PDF)</label>
+                </div>
+                <textarea id="message" name="message" placeholder="Petición (Opcional)"></textarea>
+                <button type="submit" class="design-button">Enviar diseño</button>
+            </form>
+            <button id="closeUploadPanel" class="close-button">&times;</button>
+        </div>
+    </div>
+    
+    <div class="background-pattern"></div>
+    
+    <script src="../static/js/design.js"></script>
+</body>
+</html>
