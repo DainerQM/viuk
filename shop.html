@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/icon/icon.PNG" type="image/x-icon">
+    <title>VIUK - Tienda</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/shop.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor"></div>
+    
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">VIUK</a>
+            <ul class="nav-menu">
+                <li>
+                    <a href="design.html" class="nav-button">
+                        <i class="fas fa-paint-brush"></i>
+                        <span>Diseño</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="shop.html" class="nav-button">
+                        <i class="fas fa-store"></i>
+                        <span>Tienda</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#carrito" class="nav-button">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrito</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="store-content">
+        <h1 class="store-title">Nuestra Tienda</h1>
+        
+        <div class="buttons-container">
+            <a href="#coleccion" id="coleccionBtn" class="store-nav-link">
+                <i class="fas fa-tshirt"></i>
+                <span>Colección</span>
+            </a>
+            <a href="designers.html" id="diseñadorBtn" class="store-nav-link">
+                <i class="fas fa-pencil-ruler"></i>
+                <span>Diseñador</span>
+            </a>
+            <a href="estandar.html" id="estandarBtn" class="store-nav-link">
+                <i class="fas fa-tags"></i>
+                <span>Estándar</span>
+            </a>
+        </div>
+
+        <div class="banner-collection-container">
+            <div id="banner" class="banner">
+                <img src="/img/banners1.jpg" alt="Banner 1" class="banner-image active">
+                <img src="/img/banners2.jpg" alt="Banner 2" class="banner-image">
+                <img src="/img/banners3.jpg" alt="Banner 3" class="banner-image">
+            </div>
+
+            <div id="collectionsContainer" class="collections-grid">
+                <div class="collection-card">
+                    <div class="collection-image spring">
+                        <img src="/placeholder.svg?height=200&width=300" alt="Colección Primavera" class="collection-img">
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="collection-info">
+                        <h2>Primavera</h2>
+                        <a href="#primavera" class="collection-button">Ver Colección</a>
+                    </div>
+                </div>
+                <div class="collection-card">
+                    <div class="collection-image summer">
+                        <img src="/placeholder.svg?height=200&width=300" alt="Colección Verano" class="collection-img">
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="collection-info">
+                        <h2>Verano</h2>
+                        <a href="#verano" class="collection-button">Ver Colección</a>
+                    </div>
+                </div>
+                <div class="collection-card">
+                    <div class="collection-image autumn">
+                        <img src="/placeholder.svg?height=200&width=300" alt="Colección Otoño" class="collection-img">
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="collection-info">
+                        <h2>Otoño</h2>
+                        <a href="#otono" class="collection-button">Ver Colección</a>
+                    </div>
+                </div>
+                <div class="collection-card">
+                    <div class="collection-image winter">
+                        <img src="/placeholder.svg?height=200&width=300" alt="Colección Invierno" class="collection-img">
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="collection-info">
+                        <h2>Invierno</h2>
+                        <a href="#invierno" class="collection-button">Ver Colección</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="mainContent">
+            <section class="product-section" id="newProducts">
+                <h2>Nuevo</h2>
+                <div class="product-grid">
+                    <div class="collection-card">
+                        <div class="collection-image new-1">
+                            <img src="./img/drees/Cenos_MaryHer.jpg" alt="Nuevo Producto 1" class="collection-img">
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="collection-info">
+                            <h3>Nuevo Producto 1</h3>
+                            <a href="#nuevo1" class="collection-button">Ver Más</a>
+                        </div>
+                    </div>
+                    <div class="collection-card">
+                        <div class="collection-image new-2">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Nuevo Producto 2" class="collection-img">
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="collection-info">
+                            <h3>Nuevo Producto 2</h3>
+                            <a href="#nuevo2" class="collection-button">Ver Más</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="product-section" id="offerProducts">
+                <h2>Ofertas</h2>
+                <div class="product-grid">
+                    <div class="collection-card">
+                        <div class="collection-image offer-1">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Oferta 1" class="collection-img">
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="collection-info">
+                            <h3>Oferta 1</h3>
+                            <a href="#oferta1" class="collection-button">Ver Oferta</a>
+                        </div>
+                    </div>
+                    <div class="collection-card">
+                        <div class="collection-image offer-2">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Oferta 2" class="collection-img">
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="collection-info">
+                            <h3>Oferta 2</h3>
+                            <a href="#oferta2" class="collection-button">Ver Oferta</a>
+                        </div>
+                    </div>
+                    <div class="collection-card">
+                        <div class="collection-image offer-3">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Oferta 3" class="collection-img">
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="collection-info">
+                            <h3>Oferta 3</h3>
+                            <a href="#oferta3" class="collection-button">Ver Oferta</a>
+                        </div>
+                    </div>
+                    <div class="collection-card">
+                        <div class="collection-image offer-4">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Oferta 4" class="collection-img">
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="collection-info">
+                            <h3>Oferta 4</h3>
+                            <a href="#oferta4" class="collection-button">Ver Oferta</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="product-section" id="popularProducts">
+                <h2>Popular</h2>
+                <div class="product-grid">
+                    <div class="collection-card">
+                        <div class="collection-image popular-1">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Popular 1" class="collection-img">
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="collection-info">
+                            <h3>Popular 1</h3>
+                            <a href="#popular1" class="collection-button">Ver Producto</a>
+                        </div>
+                    </div>
+                    <div class="collection-card">
+                        <div class="collection-image popular-2">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Popular 2" class="collection-img">
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="collection-info">
+                            <h3>Popular 2</h3>
+                            <a href="#popular2" class="collection-button">Ver Producto</a>
+                        </div>
+                    </div>
+                    <div class="collection-card">
+                        <div class="collection-image popular-3">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Popular 3" class="collection-img">
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="collection-info">
+                            <h3>Popular 3</h3>
+                            <a href="#popular3" class="collection-button">Ver Producto</a>
+                        </div>
+                    </div>
+                    <div class="collection-card">
+                        <div class="collection-image popular-4">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Popular 4" class="collection-img">
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="collection-info">
+                            <h3>Popular 4</h3>
+                            <a href="#popular4" class="collection-button">Ver Producto</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="background-pattern"></div>
+    <script src="./js/shop.js"></script>
+</body>
+</html>
+

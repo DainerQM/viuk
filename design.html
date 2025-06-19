@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/icon/icon.PNG" type="image/x-icon">
+    <title>VIUK - Diseñador</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/design.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="./fonts/PlayfairDisplay-VariableFont_wght.ttf" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+</head>
+<body>
+    <div class="cursor"></div>
+    
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">VIUK</a>
+            <ul class="nav-menu">
+                <li>
+                    <a href="design.html" class="nav-button">
+                        <i class="fas fa-paint-brush"></i>
+                        <span>Diseño</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="shop.html" class="nav-button">
+                        <i class="fas fa-store"></i>
+                        <span>Tienda</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#carrito" class="nav-button">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrito</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="design-content">
+        <h1 class="design-title">Diseñador VIUK</h1>
+        
+        <div class="design-container">
+            <!-- Editor de Imágenes -->
+            <div class="editor-layout">
+                <!-- Barra de herramientas superior -->
+                <div class="editor-toolbar">
+                    <div class="tool-group">
+                        <button id="textTool" class="tool-btn active" data-tool="text">
+                            <i class="fas fa-font"></i>
+                            <span>Texto</span>
+                        </button>
+                        <button id="shapeTool" class="tool-btn" data-tool="shape">
+                            <i class="fas fa-shapes"></i>
+                            <span>Formas</span>
+                        </button>
+                        <button id="imageTool" class="tool-btn" data-tool="image">
+                            <i class="fas fa-image"></i>
+                            <span>Imagen</span>
+                        </button>
+                    </div>
+                    
+                    <div class="tool-group">
+                        <button id="zoomInBtn" class="tool-btn">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                        <button id="zoomOutBtn" class="tool-btn">
+                            <i class="fas fa-search-minus"></i>
+                        </button>
+                        <button id="gridBtn" class="tool-btn">
+                            <i class="fas fa-th"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Área principal del editor -->
+                <div class="editor-main">
+                    <!-- Panel de propiedades izquierdo -->
+                    <div class="properties-panel">
+                        <!-- Propiedades de texto -->
+                        <div id="textProperties" class="property-section">
+                            <h3>Propiedades de Texto</h3>
+                            <div class="property-group">
+                                <label for="textInput">Texto</label>
+                                <input type="text" id="textInput" value="Texto de ejemplo" placeholder="Escribe aquí...">
+                            </div>
+                            <div class="property-group">
+                                <label for="fontSize">Tamaño: <span id="fontSizeValue">24</span>px</label>
+                                <input type="range" id="fontSize" min="12" max="72" value="24">
+                            </div>
+                            <div class="property-group">
+                                <label for="fontFamily">Fuente</label>
+                                <select id="fontFamily">
+                                    <option value="Arial">Arial</option>
+                                    <option value="Georgia">Georgia</option>
+                                    <option value="Times New Roman">Times New Roman</option>
+                                    <option value="Courier New">Courier New</option>
+                                    <option value="Verdana">Verdana</option>
+                                </select>
+                            </div>
+                            <div class="property-group">
+                                <label for="textColor">Color</label>
+                                <div class="color-picker">
+                                    <input type="color" id="textColor" value="#000000">
+                                    <input type="text" id="textColorHex" value="#000000">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Propiedades de forma -->
+                        <div id="shapeProperties" class="property-section" style="display: none;">
+                            <h3>Propiedades de Forma</h3>
+                            <div class="property-group">
+                                <label>Tipo de Forma</label>
+                                <div class="shape-buttons">
+                                    <button id="rectangleBtn" class="shape-btn active" data-shape="rectangle">
+                                        <i class="fas fa-square"></i>
+                                    </button>
+                                    <button id="circleBtn" class="shape-btn" data-shape="circle">
+                                        <i class="fas fa-circle"></i>
+                                    </button>
+                                    <button id="triangleBtn" class="shape-btn" data-shape="triangle">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="property-group">
+                                <label for="shapeWidth">Ancho: <span id="shapeWidthValue">100</span>px</label>
+                                <input type="range" id="shapeWidth" min="20" max="300" value="100">
+                            </div>
+                            <div class="property-group">
+                                <label for="shapeHeight">Alto: <span id="shapeHeightValue">100</span>px</label>
+                                <input type="range" id="shapeHeight" min="20" max="300" value="100">
+                            </div>
+                            <div class="property-group">
+                                <label for="shapeFillColor">Color de Relleno</label>
+                                <div class="color-picker">
+                                    <input type="color" id="shapeFillColor" value="#000000">
+                                    <input type="text" id="shapeFillColorHex" value="#000000">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Propiedades de imagen -->
+                        <div id="imageProperties" class="property-section" style="display: none;">
+                            <h3>Subir Imagen</h3>
+                            <div class="property-group">
+                                <div class="upload-area">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Arrastra una imagen aquí o haz clic para seleccionar</p>
+                                    <input type="file" id="imageUpload" accept="image/*" hidden>
+                                    <button type="button" onclick="document.getElementById('imageUpload').click()">
+                                        Seleccionar Imagen
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Configuración del canvas -->
+                        <div class="property-section">
+                            <h3>Canvas</h3>
+                            <div class="property-group">
+                                <label for="canvasBackground">Color de Fondo</label>
+                                <div class="color-picker">
+                                    <input type="color" id="canvasBackground" value="#ffffff">
+                                    <input type="text" id="canvasBackgroundHex" value="#ffffff">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Canvas central -->
+                    <div class="canvas-area">
+                        <div class="canvas-container">
+                            <canvas id="canvas" width="800" height="600"></canvas>
+                        </div>
+                        <div class="canvas-info">
+                            <span>800 × 600px</span>
+                            <span id="zoomLevel">100%</span>
+                        </div>
+                    </div>
+
+                    <!-- Panel de capas derecho -->
+                    <div class="layers-panel">
+                        <div class="layers-header">
+                            <h3>Capas <span id="layerCount">(0)</span></h3>
+                        </div>
+                        <div id="layersList" class="layers-list">
+                            <div class="no-layers">
+                                <i class="fas fa-layer-group"></i>
+                                <p>No hay capas aún</p>
+                                <small>Selecciona una herramienta y haz clic en el canvas</small>
+                            </div>
+                        </div>
+                        
+                        <!-- Propiedades del elemento seleccionado -->
+                        <div id="selectedElementProps" class="selected-props">
+                            <h4>Propiedades del Elemento</h4>
+                            <p>Selecciona un elemento para editar sus propiedades</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button id="saveButton" class="design-button">
+                <i class="fas fa-download"></i>
+                Guardar Diseño
+            </button>
+            <button id="sendButton" class="design-button">
+                <i class="fas fa-paper-plane"></i>
+                Enviar a DB
+            </button>
+        </div>
+    </main>
+
+    <div class="background-pattern"></div>
+
+    <script src="./js/design.js"></script>
+</body>
+</html>

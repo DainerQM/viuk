@@ -1,0 +1,299 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f8f8f8;
+    color: #000000;
+}
+.store-content {
+    margin-top: 120px;
+    padding: 0 20px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.store-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 50px;
+    letter-spacing: 5px;
+    position: relative;
+}
+
+.store-title::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 2px;
+    background-color: #000;
+    margin: 20px auto;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.store-nav-link {
+    text-decoration: none;
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.store-nav-link i {
+    font-size: 1.5em;
+    transition: transform 0.3s ease;
+}
+
+.store-nav-link span {
+    font-size: 0.8em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.store-nav-link:hover {
+    color: #333;
+}
+
+.store-nav-link:hover i {
+    transform: translateY(-5px);
+}
+
+.store-nav-link:hover span {
+    opacity: 1;
+}
+
+.store-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #000;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.store-nav-link:hover::after {
+    width: 100%;
+}
+
+.banner-collection-container {
+    position: relative;
+    height: 400px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.banner-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.banner-image.active {
+    opacity: 1;
+}
+
+.collections-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    background-color: transparent;
+    transform: translateY(-100%);
+    transition: transform 0.5s ease-in-out;
+}
+
+.collections-grid.show {
+    transform: translateY(0);
+}
+
+.banner.hide {
+    transform: translateY(100%);
+}
+
+.collection-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.collection-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-section {
+    margin-bottom: 30px;
+}
+
+.product-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.product-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.collection-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 230px;
+    height: 330px;
+}
+
+.collection-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.collection-image {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+    transition: background 0.3s ease;
+}
+
+.collection-card:hover .overlay {
+    background: rgba(0,0,0,0.1);
+}
+
+.collection-image i {
+    font-size: 3em;
+    color: white;
+    z-index: 1;
+    opacity: 0.8;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.collection-card:hover .collection-image i {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+.collection-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.collection-info h2, .collection-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.collection-button {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #000;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+}
+
+.collection-button:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+}
+
+#mainContent {
+    transition: all 0.5s ease;
+}
+
+@media (max-width: 768px) {
+    .store-title {
+        font-size: 2em;
+    }
+
+    .buttons-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .product-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .collection-card {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+.collection-image.spring { background-image: url('path-to-spring-image.jpg'); }
+.collection-image.summer { background-image: url('path-to-summer-image.jpg'); }
+.collection-image.autumn { background-image: url('path-to-autumn-image.jpg'); }
+.collection-image.winter { background-image: url('path-to-winter-image.jpg'); }
+.collection-image.new-1 { background-image: url('path-to-new-1-image.jpg'); }
+.collection-image.new-2 { background-image: url('path-to-new-2-image.jpg'); }
+.collection-image.offer-1 { background-image: url('path-to-offer-1-image.jpg'); }
+.collection-image.offer-2 { background-image: url('path-to-offer-2-image.jpg'); }
+.collection-image.offer-3 { background-image: url('path-to-offer-3-image.jpg'); }
+.collection-image.offer-4 { background-image: url('path-to-offer-4-image.jpg'); }
+.collection-image.popular-1 { background-image: url('path-to-popular-1-image.jpg'); }
+.collection-image.popular-2 { background-image: url('path-to-popular-2-image.jpg'); }
+.collection-image.popular-3 { background-image: url('path-to-popular-3-image.jpg'); }
+.collection-image.popular-4 { background-image: url('path-to-popular-4-image.jpg'); }
